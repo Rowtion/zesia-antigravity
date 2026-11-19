@@ -67,7 +67,7 @@ is tested without Node on PATH; runtime multi-platform A2A acceptance and actual
 acceptance have separate evidence. Publishing is an explicit workflow on main and never
 replaces an existing version. Preserve [LICENSE](LICENSE) and upstream notices.
 
-[Gemini Antigravity Skill documentation](https://developers.openai.com/codex/skills)
+[Gemini Antigravity Skill documentation](https://antigravity.google/docs/skills)
 
 ### Antigravity starter prompt candidate
 
