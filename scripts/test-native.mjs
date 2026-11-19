@@ -19,6 +19,11 @@ try{
  const project=join(temp,'project'),emptyPath=join(temp,'empty-path');await mkdir(project);await mkdir(emptyPath);
  const executable=join(source,'scripts/zesia'+(process.platform==='win32'?'.exe':''));
  const env={...process.env,PATH:process.platform==='win32'?process.env.SystemRoot+'\\System32':emptyPath,ZESIA_CONFIG:join(temp,'private-config.json'),ZESIA_STATE_DIR:join(temp,'private-state')};
+ const isolatedHome=join(temp,'new-user');await mkdir(isolatedHome);
+ const userEnv={...env,HOME:isolatedHome,USERPROFILE:isolatedHome};
+ const first=JSON.parse(execFileSync(executable,['install'],{env:userEnv,encoding:'utf8'}));
+ assert.equal(first.destination,join(await realpath(isolatedHome),'.gemini/config/skills/zesia-consult'));
+ assert.equal(JSON.parse(execFileSync(executable,['install'],{env:userEnv,encoding:'utf8'})).reused,true);
  const installed=JSON.parse(execFileSync(executable,['install',project],{env,encoding:'utf8'}));assert.equal(installed.ok,true);
  assert.equal(installed.destination,join(await realpath(project),'.agents/skills/zesia-consult'));
  const marker=JSON.parse(await readFile(join(installed.destination,'zesia-install.json'),'utf8'));assert.equal(marker.host,'antigravity');assert.equal(marker.runtimeVersion,lock.version);
