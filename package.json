@@ -12,7 +12,8 @@
     "build": "node scripts/build.mjs",
     "test": "node --test test/*.test.mjs",
     "package": "node scripts/package.mjs",
-    "test:native": "node scripts/test-native.mjs"
+    "test:native": "node scripts/test-native.mjs",
+    "build:plugin": "node scripts/build-plugin.mjs"
   },
   "dependencies": {
     "@zesia/runtime": "https://github.com/Rowtion/zesia-skill/releases/download/v0.4.7/zesia-runtime-0.4.7.tgz"
