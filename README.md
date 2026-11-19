@@ -68,3 +68,13 @@ acceptance have separate evidence. Publishing is an explicit workflow on main an
 replaces an existing version. Preserve [LICENSE](LICENSE) and upstream notices.
 
 [Gemini Antigravity Skill documentation](https://developers.openai.com/codex/skills)
+
+### Antigravity starter prompt candidate
+
+Build the Skill and then run `npm run build:plugin` to generate a native plugin directory for
+the current OS and architecture. The build validates and embeds the pinned standalone Runtime.
+The plugin detail view offers a starter prompt to request a local Consult draft. Review and approve
+that draft in the shared ZESIA window. The native App still needs an authenticated interactive
+acceptance pass before this path is released.
+
+[Antigravity plugin documentation](https://antigravity.google/docs/build-plugins/)
